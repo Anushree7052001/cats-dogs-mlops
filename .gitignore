@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.mlflow/
+mlruns/
+*.pyc
+.env
+.DS_Store
+models/*.keras
+artifacts/*.png
+artifacts/*.json
+# DVC-managed data remains ignored after `dvc add`.
+data/processed/*
+!data/processed/.gitkeep
+.vscode/
+.vscode/

@@ -1,0 +1,22 @@
+stages:
+  train:
+    cmd: python -m src.train
+    deps:
+      - src/train.py
+      - src/model.py
+      - src/preprocess.py
+      - params.yaml
+      - data/raw
+    params:
+      - image_size
+      - batch_size
+      - epochs
+      - learning_rate
+      - seed
+    outs:
+      - data/processed/train.csv
+      - data/processed/validation.csv
+      - data/processed/test.csv
+      - models/cats_dogs_model.keras
+    metrics:
+      - artifacts/metrics.json
