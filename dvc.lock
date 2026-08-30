@@ -1,0 +1,54 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python -m src.train
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: 95c40fe92c92c393fbbaf8be85fd02d3.dir
+      size: 571915376
+      nfiles: 25001
+    - path: params.yaml
+      hash: md5
+      md5: dacb48f5c9a731c5fda8973582a70446
+      size: 71
+    - path: src/model.py
+      hash: md5
+      md5: 5a296214533e6c880e20352d522c4d9a
+      size: 942
+    - path: src/preprocess.py
+      hash: md5
+      md5: 9a90212cb4730973fd93c428a5f7551c
+      size: 525
+    - path: src/train.py
+      hash: md5
+      md5: 9cef63510cfdf84895289d7ca8df8642
+      size: 6688
+    params:
+      params.yaml:
+        batch_size: 32
+        epochs: 5
+        image_size: 224
+        learning_rate: 0.001
+        seed: 42
+    outs:
+    - path: artifacts/metrics.json
+      hash: md5
+      md5: 5f48be199fcc30d35606fdc4b7d9aa9f
+      size: 241
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 7f0b0b96a7da8e00f6a4e9d2e9dcd547
+      size: 247793
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 85f723170b92ee8e8dbc95a27df3ad23
+      size: 1982251
+    - path: data/processed/validation.csv
+      hash: md5
+      md5: 3caff79455b65cf90a99311b14519b17
+      size: 247769
+    - path: models/cats_dogs_model.keras
+      hash: md5
+      md5: b1d8e7f5522f0f2350e83983f8f5f42f
+      size: 134081330
