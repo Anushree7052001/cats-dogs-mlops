@@ -1,0 +1,8 @@
+{
+  "requests": 10,
+  "correct_predictions": 9,
+  "accuracy": 0.9,
+  "average_latency_seconds": 0.0749346,
+  "deployment_image": "anushree0707/cats-dogs-mlops:arm64",
+  "endpoint": "http://localhost:8000/predict"
+}
