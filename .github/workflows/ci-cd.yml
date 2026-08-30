@@ -26,8 +26,7 @@ jobs:
       - name: Build image
         run: docker build -t $IMAGE_NAME:${{ github.sha }} -t $IMAGE_NAME:latest .
       - name: Docker login
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: docker/login-action@v3
+        if: github.ref == 'refs/heads/main' && vars.ENABLE_DEPLOY == 'true'        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -38,7 +37,7 @@ jobs:
           docker push $IMAGE_NAME:latest
 
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && vars.ENABLE_DEPLOY == 'true'
     needs: test-and-build
     runs-on: ubuntu-latest
     steps:
@@ -71,3 +70,4 @@ jobs:
             sleep 10
             curl --fail http://localhost:8000/health
             echo "Compose deployment and health smoke test passed"
+
