@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -70,4 +72,6 @@ jobs:
             sleep 10
             curl --fail http://localhost:8000/health
             echo "Compose deployment and health smoke test passed"
+
+^o
 
