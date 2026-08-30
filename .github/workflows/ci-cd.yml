@@ -74,5 +74,4 @@ jobs:
             curl --fail http://localhost:8000/health
             echo "Compose deployment and health smoke test passed"
 
-^o
 
