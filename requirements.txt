@@ -14,3 +14,4 @@ pyarrow==17.0.0
 pandas==2.3.2
 pytest==8.4.1
 requests==2.32.5
+httpx==0.28.1
